@@ -1,11 +1,70 @@
 .custom-sign-up-btn {
   display: none;
 }
+
+.accordion-container {
+  width: 100%;
+}
+
+.accordion {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.accordion:hover {
+  border-color: #fcb42d;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between; /* Space between text and caret */
+  align-items: center;
+  padding: 25px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: white;
+  user-select: none;
+  color: black;
+}
+
+/* .accordion-header.active {
+  background-color: #e0e0e0;
+} */
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  padding: 0 25px;
+  background-color: #fff;
+}
+
+.accordion-content p {
+  margin: 0;
+  padding: 0px 0px 25px 0px;
+}
+
+/* Caret icon style */
+.caret {
+  transition: transform 0.3s ease-out; /* Smooth rotation of caret */
+}
+
+/* Rotate the caret when accordion is active */
+.accordion-header.active .caret {
+  transform: rotate(180deg); /* Rotate 180 degrees when active */
+}
+
 @media (max-width: 960px) {
   .custom-sign-up-btn {
     transform: translateY(20px);
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .accordion-header {
+    font-size: 16px;
   }
 }
