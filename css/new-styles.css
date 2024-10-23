@@ -1,0 +1,11 @@
+.custom-sign-up-btn {
+  display: none;
+}
+@media (max-width: 960px) {
+  .custom-sign-up-btn {
+    transform: translateY(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

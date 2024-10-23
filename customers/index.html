@@ -49,6 +49,7 @@
     <link rel="preload" href="../js/config-theme.js" as="script" />
     <!-- stylesheet -->
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/new-styles.css" />
     <!-- uikit -->
     <script src="../js/vendors/uikit.min.js"></script>
     <!-- favicon -->
@@ -68,11 +69,11 @@
 
   <body>
     <!-- page loader begin -->
-    <div class="page-loader">
+    <!-- <div class="page-loader">
       <div></div>
       <div></div>
       <div></div>
-    </div>
+    </div> -->
     <!-- page loader end -->
     <!-- header begin -->
     <header>
@@ -111,18 +112,7 @@
                 >
               </a>
               <ul class="uk-navbar-nav uk-visible@m">
-                <li>
-                  <a href="#">Home<span data-uk-navbar-parent-icon></span></a>
-                  <div class="uk-navbar-dropdown">
-                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                      <li><a href="/">Home</a></li>
-                      <li><a href="/steps">Steps</a></li>
-                      <li>
-                        <a href="/popular-instruments/">Popular Instruments</a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
+                <li><a href="/">Home</a></li>
                 <li>
                   <a href="#"
                     >Company<span data-uk-navbar-parent-icon></span
@@ -136,14 +126,11 @@
                       <li>
                         <a href="/careers/">Careers</a>
                       </li>
-                      <li><a href="/contact">Contact</a></li>
                     </ul>
                   </div>
                 </li>
 
-                <li><a href="/markets">Markets</a></li>
-
-                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/pricing">Plans</a></li>
 
                 <li>
                   <a href="#"
@@ -152,14 +139,25 @@
                   <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
                       <li>
-                        <a href="/help-center/">Help Center</a>
+                        <a href="/help-center/">FAQs</a>
                       </li>
                       <li>
                         <a style="color: #fcb42d" href="#">Customers</a>
                       </li>
-                      <li><a href="/roadmap">Roadmap</a></li>
                     </ul>
                   </div>
+                </li>
+                <li><a href="/rules">Terms</a></li>
+                <li><a href="/contact/">Contact Us</a></li>
+                <li class="custom-sign-up-btn">
+                  <a
+                    style="font-size: 16px"
+                    href="/sign-up/"
+                    class="uk-button uk-button-text"
+                    >Register<i
+                      class="fas fa-arrow-circle-right uk-margin-small-left"
+                    ></i
+                  ></a>
                 </li>
               </ul>
             </div>
@@ -488,9 +486,8 @@
                 <div class="in-margin-top-60@s">
                   <h5>Resources</h5>
                   <ul class="uk-list uk-link-text">
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Customers</a></li>
-                    <li><a href="#">Road Map</a></li>
+                    <li><a href="/help-center">FAQs</a></li>
+                    <li><a href="/customers">Customers</a></li>
                   </ul>
                 </div>
               </div>
