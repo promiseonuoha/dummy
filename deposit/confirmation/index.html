@@ -2,34 +2,42 @@
 <html lang="en" data-topbar-color="dark">
   <head>
     <meta charset="utf-8" />
-    <title>Dashboard - Exquisite Investment Limited</title>
+    <title>Deposit Funds - Exquisite Investment Limited</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta content="Exquisite Investment Limited" name="author" />
 
     <!-- favicon -->
-    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="../../img/favicon.ico"
+      type="image/x-icon"
+    />
     <!-- touch icon -->
     <link
       rel="apple-touch-icon-precomposed"
-      href="../img/apple-touch-icon.png"
+      href="../../img/apple-touch-icon.png"
     />
 
     <!-- Theme Config Js -->
-    <script src="assets/js/head.js"></script>
+    <script src="../../dashboard/assets/js/head.js"></script>
 
     <!-- Bootstrap css -->
     <link
-      href="assets/css/bootstrap.min.css"
+      href="../../dashboard/assets/css/bootstrap.min.css"
       rel="stylesheet"
       type="text/css"
       id="app-style"
     />
 
     <!-- App css -->
-    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
+    <link
+      href="../../dashboard/assets/css/app.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
 
-    <link rel="stylesheet" href="../css/new-styles.css" />
+    <link rel="stylesheet" href="../../css/new-styles.css" />
 
     <!-- Font Awesome -->
     <script
@@ -47,8 +55,8 @@
         <div class="logo-box">
           <!-- Brand Logo Dark -->
           <!-- <a href="index.html" class="logo-dark">
-            <img src="../img/user/logo.png" alt="dark logo" class="logo-lg" />
-            <img src="../img/user/logo.png" alt="small logo" class="logo-sm" />
+            <img src="../../img/user/logo.png" alt="dark logo" class="logo-lg" />
+            <img src="../../img/user/logo.png" alt="small logo" class="logo-sm" />
           </a> -->
         </div>
 
@@ -105,13 +113,10 @@
             <li class="menu-item">
               <a href="/dashboard/" class="menu-link">
                 <span class="menu-icon menu-link-color menu-link-color"
-                  ><i
-                    style="font-size: 13px; color: #fcb42d"
-                    class="fa-solid fa-tv"
-                  ></i
+                  ><i style="font-size: 13px" class="fa-solid fa-tv"></i
                 ></span>
                 <span
-                  style="font-size: 14px; color: #fcb42d"
+                  style="font-size: 14px"
                   class="menu-text menu-link-color menu-link-color"
                 >
                   Dashboard
@@ -129,16 +134,19 @@
               >
                 <span class="menu-icon menu-link-color"
                   ><i
-                    style="font-size: 13px"
+                    style="font-size: 13px; color: #fcb42d"
                     class="fa-solid fa-dollar-sign"
                   ></i
                 ></span>
-                <span style="font-size: 14px" class="menu-text menu-link-color">
+                <span
+                  style="font-size: 14px; color: #fcb42d"
+                  class="menu-text menu-link-color"
+                >
                   Transactions
                 </span>
                 <span class="menu-arrow menu-link-color">
                   <i
-                    style="font-size: 11px"
+                    style="font-size: 11px; color: #fcb42d"
                     class="fa-solid fa-angle-right"
                   ></i>
                 </span>
@@ -146,9 +154,9 @@
               <div class="collapse" id="menuEcommerce">
                 <ul class="sub-menu">
                   <li class="menu-item">
-                    <a href="/deposit/" class="menu-link">
+                    <a href="#" class="menu-link">
                       <span
-                        style="font-size: 14px"
+                        style="font-size: 14px; color: #fcb42d"
                         class="menu-text menu-link-color"
                         >Deposit Funds</span
                       >
@@ -273,20 +281,6 @@
                   class="fa-solid fa-bars menu-link-color"
                 ></i>
               </button>
-
-              <!-- Dropdown Menu -->
-              <!-- <div class="dropdown d-none d-xl-block">
-                <a
-                  class="nav-link dropdown-toggle waves-effect waves-light"
-                  data-bs-toggle="dropdown"
-                  href="#"
-                  role="button"
-                  aria-haspopup="false"
-                  aria-expanded="false"
-                >
-                  Deposit Funds
-                </a>
-              </div> -->
             </div>
 
             <ul class="topbar-menu d-flex align-items-center">
@@ -357,7 +351,7 @@
                   <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                       <li class="breadcrumb-item">
-                        <a style="color: #fcb42d" href="#">Home </a>
+                        <a style="color: #fcb42d" href="/dashboard/">Home </a>
                       </li>
 
                       <li class="breadcrumb-item active">
@@ -367,159 +361,119 @@
                         ></i>
                       </li>
 
-                      <li class="breadcrumb-item active">Dashboard</li>
+                      <li class="breadcrumb-item">
+                        <a style="color: #fcb42d" href="/deposit/">Deposit</a>
+                      </li>
+                      <li class="breadcrumb-item active">
+                        <i
+                          style="font-size: 9px"
+                          class="fas fa-angle-right"
+                        ></i>
+                      </li>
+
+                      <li class="breadcrumb-item active">Confirmation</li>
                     </ol>
                   </div>
-                  <h4 class="page-title">Dashboard</h4>
+                  <h4 class="page-title">Confirm Deposit</h4>
                 </div>
               </div>
             </div>
             <!-- end page title -->
-
-            <div class="row">
-              <div class="col-md-6 col-xl-3">
-                <div class="card" id="tooltip-container">
-                  <div class="card-body">
-                    <i
-                      class="fa fa-info-circle text-muted float-end"
-                      data-bs-container="#tooltip-container"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="bottom"
-                      title="Total amount of active Investment"
-                    ></i>
-                    <h4 class="mt-0 font-16">Active Deposits</h4>
-                    <h2 class="text-primary my-3 text-center">
-                      <span style="color: #fcb42d">$</span>
-                      <span style="color: #fcb42d" data-plugin="counterup"
-                        >31,570</span
-                      >
-                    </h2>
-                    <p class="text-muted mb-0">Total Active Invest</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-6 col-xl-3">
-                <div class="card" id="tooltip-container1">
-                  <div class="card-body">
-                    <i
-                      class="fa fa-info-circle text-muted float-end"
-                      data-bs-container="#tooltip-container1"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="bottom"
-                      title="Total amount of profit made"
-                    ></i>
-                    <h4 class="mt-0 font-16">Profit</h4>
-                    <h2 class="text-primary my-3 text-center">
-                      <span style="color: #fcb42d">$</span
-                      ><span style="color: #fcb42d" data-plugin="counterup"
-                        >683</span
-                      >
-                    </h2>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-6 col-xl-3">
-                <div class="card" id="tooltip-container2">
-                  <div class="card-body">
-                    <i
-                      class="fa fa-info-circle text-muted float-end"
-                      data-bs-container="#tooltip-container2"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="bottom"
-                      title="Number of Referrals"
-                    ></i>
-                    <h4 class="mt-0 font-16">Referrals</h4>
-                    <h2 class="text-primary my-3 text-center">
-                      <span style="color: #fcb42d" data-plugin="counterup"
-                        >3.2</span
-                      ><span style="color: #fcb42d">M</span>
-                    </h2>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-6 col-xl-3">
-                <div class="card" id="tooltip-container3">
-                  <div class="card-body">
-                    <i
-                      class="fa fa-info-circle text-muted float-end"
-                      data-bs-container="#tooltip-container3"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="bottom"
-                      title="Total amount earn on referrals"
-                    ></i>
-                    <h4 class="mt-0 font-16">Referral Commisions</h4>
-                    <h2 class="text-primary my-3 text-center">
-                      <span style="color: #fcb42d">$</span
-                      ><span style="color: #fcb42d" data-plugin="counterup"
-                        >68,541</span
-                      >
-                    </h2>
-                    <p class="text-muted mb-0">
-                      Total amount earn on referrals
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="header-title">Live Crypto Prices</h4>
-
-                    <div
-                      id="basic-datatable_wrapper"
-                      class="dataTables_wrapper dt-bootstrap5 no-footer"
-                    >
-                      <div
-                        style="
-                          overflow-x: auto;
-                          max-height: 80vh;
-                          overflow-y: auto;
-                        "
-                        class="row tableScrollbar"
-                      >
-                        <div class="col-sm-12">
-                          <table
-                            id="basic-datatable"
-                            class="table dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
-                            aria-describedby="basic-datatable_info"
-                            style="width: 1010px"
+          </div>
+          <!-- container -->
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <!-- end col-->
+                    <div class="col-lg-12">
+                      <div class="tab-content p-3">
+                        <div
+                          class="tab-pane fade active show"
+                          id="custom-v-pills-billing"
+                          role="tabpanel"
+                          aria-labelledby="custom-v-pills-billing-tab"
+                        >
+                          <div>
+                            <h4 class="header-title">Deposit Confirmation</h4>
+                          </div>
+                        </div>
+                        <div class="Confirm-deposit-table">
+                          <div>
+                            <p>
+                              <b>Plan:</b>
+                            </p>
+                            <p>BASIC PLAN</p>
+                          </div>
+                          <div>
+                            <p>
+                              <b>Profit:</b>
+                            </p>
+                            <p>1.43% Daily for lifelong</p>
+                          </div>
+                          <div>
+                            <p>
+                              <b>Principal Return:</b>
+                            </p>
+                            <p>No (included in profit)</p>
+                          </div>
+                          <div>
+                            <p>
+                              <b>Principal Withdraw: </b>
+                            </p>
+                            <p>Not available</p>
+                          </div>
+                          <div>
+                            <p>
+                              <b>Credit Amount:</b>
+                            </p>
+                            <p>$500.00</p>
+                          </div>
+                          <div>
+                            <p>
+                              <b>Deposit Fee:</b>
+                            </p>
+                            <p>0.00% + $0.00 (min. $0.00 max. $0.00)</p>
+                          </div>
+                          <div>
+                            <p>
+                              <b>Debit Amount:</b>
+                            </p>
+                            <p>$500.00</p>
+                          </div>
+                          <div>
+                            <p>
+                              <b>BTC Debit Amount:</b>
+                            </p>
+                            <p>0.00743712</p>
+                          </div>
+                          <div>
+                            <p>
+                              <b>Order status:</b>
+                            </p>
+                            <p>Waiting for payment</p>
+                          </div>
+                          <p
+                            style="
+                              font-size: 15px;
+                              font-weight: 500;
+                              color: #6c757d;
+                            "
                           >
-                            <thead>
-                              <tr>
-                                <th tabindex="0" rowspan="1" colspan="1">
-                                  Cryptocurrency
-                                </th>
-                                <th tabindex="0" rowspan="1" colspan="1">
-                                  Price (USD)
-                                </th>
-                                <th tabindex="0" rowspan="1" colspan="1">
-                                  24h Change
-                                </th>
-                                <th tabindex="0" rowspan="1" colspan="1">
-                                  Market Cap
-                                </th>
-                              </tr>
-                            </thead>
-
-                            <tbody></tbody>
-                          </table>
+                            Please send 0.00743712 Bitcoin to
+                            1MvRiH9ATXywUypvoA92MJNAzxxnXGn7Ha
+                          </p>
                         </div>
                       </div>
                     </div>
+                    <!-- end col-->
                   </div>
-                  <!-- end card body-->
+                  <!-- end row-->
                 </div>
-                <!-- end card -->
               </div>
-              <!-- end col-->
             </div>
           </div>
-          <!-- container -->
         </div>
         <!-- content -->
 
@@ -551,89 +505,18 @@
       </div>
     </div>
 
-    <script src="assets/js/vendor.min.js"></script>
+    <script src="../../dashboard/assets/js/vendor.min.js"></script>
 
     <!-- App js -->
-    <script src="assets/js/app.min.js"></script>
+    <script src="../../dashboard/assets/js/app.min.js"></script>
 
     <!-- Chat app -->
-    <script src="assets/js/pages/jquery.chat.js"></script>
+    <script src="../../dashboard/assets/js/pages/jquery.chat.js"></script>
 
     <!-- Todo app -->
-    <script src="assets/js/pages/jquery.todo.js"></script>
+    <script src="../../dashboard/assets/js/pages/jquery.todo.js"></script>
 
     <!-- Dashboard init JS -->
-    <script src="assets/js/pages/dashboard-3.init.js"></script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const apiUrl = "https://api.coingecko.com/api/v3/coins/markets";
-        const params = {
-          vs_currency: "usd",
-          order: "market_cap_desc",
-          per_page: 250, // Fetch 250 cryptocurrencies
-          page: 1,
-          sparkline: false,
-        };
-
-        async function fetchCryptoData() {
-          const url = new URL(apiUrl);
-          Object.keys(params).forEach((key) =>
-            url.searchParams.append(key, params[key])
-          );
-          try {
-            const response = await fetch(url);
-            if (response.ok) {
-              const data = await response.json();
-              updateTable(data);
-            } else {
-              console.error("Error fetching data:", response.statusText);
-            }
-          } catch (error) {
-            console.error("Fetch error:", error);
-          }
-        }
-
-        function updateTable(data) {
-          const tbody = document
-            .getElementById("basic-datatable")
-            .getElementsByTagName("tbody")[0];
-          tbody.innerHTML = ""; // Clear previous table rows
-          data.forEach((coin) => {
-            const row = tbody.insertRow();
-
-            // Add crypto image and name
-            const imageCell = row.insertCell(0);
-            const img = document.createElement("img");
-            img.src = coin.image; // Crypto image URL
-            img.alt = coin.name;
-            img.width = 20; // Adjust size as necessary
-            img.height = 20;
-            const name = document.createElement("span");
-            name.textContent = ` ${coin.name}`;
-            imageCell.appendChild(img);
-            imageCell.appendChild(name);
-
-            // Add price
-            row.insertCell(1).textContent = `$${coin.current_price.toFixed(2)}`;
-
-            // Add 24h price change
-            row.insertCell(
-              2
-            ).textContent = `${coin.price_change_percentage_24h.toFixed(2)}%`;
-
-            // Add market cap
-            row.insertCell(
-              3
-            ).textContent = `$${coin.market_cap.toLocaleString()}`;
-          });
-        }
-
-        // Fetch data every 60 seconds
-        setInterval(fetchCryptoData, 60000);
-        // Initial fetch
-        fetchCryptoData();
-      });
-    </script>
+    <script src="../../dashboard/assets/js/pages/dashboard-3.init.js"></script>
   </body>
 </html>
