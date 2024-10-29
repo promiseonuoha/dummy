@@ -38,6 +38,10 @@
     />
 
     <link rel="stylesheet" href="../../css/new-styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
+      rel="stylesheet"
+    />
 
     <!-- Font Awesome -->
     <script
@@ -112,13 +116,10 @@
 
             <li class="menu-item">
               <a href="/dashboard/" class="menu-link">
-                <span class="menu-icon menu-link-color menu-link-color"
+                <span class="menu-icon"
                   ><i style="font-size: 13px" class="fa-solid fa-tv"></i
                 ></span>
-                <span
-                  style="font-size: 14px"
-                  class="menu-text menu-link-color menu-link-color"
-                >
+                <span style="font-size: 14px" class="menu-text">
                   Dashboard
                 </span>
               </a>
@@ -132,19 +133,16 @@
                 data-bs-toggle="collapse"
                 class="menu-link"
               >
-                <span class="menu-icon menu-link-color"
+                <span class="menu-icon"
                   ><i
                     style="font-size: 13px; color: #fcb42d"
                     class="fa-solid fa-dollar-sign"
                   ></i
                 ></span>
-                <span
-                  style="font-size: 14px; color: #fcb42d"
-                  class="menu-text menu-link-color"
-                >
+                <span style="font-size: 14px; color: #fcb42d" class="menu-text">
                   Transactions
                 </span>
-                <span class="menu-arrow menu-link-color">
+                <span class="menu-arrow">
                   <i
                     style="font-size: 11px; color: #fcb42d"
                     class="fa-solid fa-angle-right"
@@ -157,16 +155,14 @@
                     <a href="#" class="menu-link">
                       <span
                         style="font-size: 14px; color: #fcb42d"
-                        class="menu-text menu-link-color"
+                        class="menu-text"
                         >Deposit Funds</span
                       >
                     </a>
                   </li>
                   <li class="menu-item">
                     <a href="#" class="menu-link">
-                      <span
-                        style="font-size: 14px"
-                        class="menu-text menu-link-color"
+                      <span style="font-size: 14px" class="menu-text"
                         >Withdraw Funds</span
                       >
                     </a>
@@ -179,16 +175,14 @@
 
             <li class="menu-item">
               <a href="#menuAuth" data-bs-toggle="collapse" class="menu-link">
-                <span class="menu-icon menu-link-color"
+                <span class="menu-icon"
                   ><i
                     style="font-size: 13px"
                     class="fa-solid fa-clock-rotate-left"
                   ></i
                 ></span>
-                <span style="font-size: 14px" class="menu-text menu-link-color">
-                  History
-                </span>
-                <span class="menu-arrow menu-link-color">
+                <span style="font-size: 14px" class="menu-text"> History </span>
+                <span class="menu-arrow">
                   <i style="font-size: 11px" class="fa-solid fa-angle-right"></i
                 ></span>
               </a>
@@ -196,25 +190,21 @@
                 <ul class="sub-menu">
                   <li class="menu-item">
                     <a href="#" class="menu-link">
-                      <span
-                        style="font-size: 14px"
-                        class="menu-text menu-link-color"
+                      <span style="font-size: 14px" class="menu-text"
                         >Deposit History</span
                       >
                     </a>
                   </li>
                   <li class="menu-item">
-                    <a href="#" class="menu-link">
-                      <span
-                        style="font-size: 14px"
-                        class="menu-text menu-link-color"
+                    <a href="/withdrawal-history" class="menu-link">
+                      <span style="font-size: 14px" class="menu-text"
                         >Withdrawal History</span
                       >
                     </a>
                   </li>
                   <li class="menu-item">
-                    <a href="#" class="menu-link">
-                      <span class="menu-text menu-link-color">Commisions</span>
+                    <a href="/commisions" class="menu-link">
+                      <span class="menu-text">Commisions</span>
                     </a>
                   </li>
                 </ul>
@@ -224,11 +214,11 @@
             <li class="menu-title">Referrals</li>
 
             <li class="menu-item">
-              <a href="#" class="menu-link">
-                <span class="menu-icon menu-link-color"
-                  ><i style="font-size: 13px" class="fa-solid fa-link"></i
+              <a href="/referrals" class="menu-link">
+                <span class="menu-icon"
+                  ><i style="font-size: 13px" class="ri-links-line"></i
                 ></span>
-                <span style="font-size: 14px" class="menu-text menu-link-color">
+                <span style="font-size: 14px" class="menu-text">
                   Referrals
                 </span>
               </a>
@@ -237,25 +227,21 @@
             <li class="menu-title">Settings</li>
             <li class="menu-item">
               <a href="#" class="menu-link">
-                <span class="menu-icon menu-link-color"
+                <span class="menu-icon"
                   ><i style="font-size: 13px" class="fa-solid fa-gears"></i
                 ></span>
-                <span style="font-size: 14px" class="menu-text menu-link-color">
-                  Profile
-                </span>
+                <span style="font-size: 14px" class="menu-text"> Profile </span>
               </a>
             </li>
             <li class="menu-item">
-              <a href="#" class="menu-link">
-                <span class="menu-icon menu-link-color"
+              <a href="/edit-profile" class="menu-link">
+                <span class="menu-icon"
                   ><i
                     style="font-size: 13px"
                     class="fa-solid fa-right-from-bracket"
                   ></i
                 ></span>
-                <span style="font-size: 14px" class="menu-text menu-link-color">
-                  Logout
-                </span>
+                <span style="font-size: 14px" class="menu-text"> Logout </span>
               </a>
             </li>
           </ul>
@@ -276,10 +262,7 @@
             <div class="topbar-menu d-flex align-items-center gap-1">
               <!-- Sidebar Menu Toggle Button -->
               <button class="button-toggle-menu">
-                <i
-                  style="font-size: 14px"
-                  class="fa-solid fa-bars menu-link-color"
-                ></i>
+                <i style="font-size: 14px" class="fa-solid fa-bars"></i>
               </button>
             </div>
 
@@ -305,6 +288,16 @@
                 </div>
               </li> -->
 
+              <!-- Light/Dark Mode Toggle Button -->
+              <li class="d-none d-sm-inline-block">
+                <div
+                  class="nav-link waves-effect waves-light"
+                  id="light-dark-mode"
+                >
+                  <i style="font-size: 20px" class="ri-moon-line"></i>
+                </div>
+              </li>
+
               <!-- User Dropdown -->
               <li class="dropdown">
                 <a
@@ -315,7 +308,7 @@
                   aria-haspopup="false"
                   aria-expanded="false"
                 >
-                  <span class="ms-1 d-none d-md-inline-block menu-link-color">
+                  <span class="ms-1 d-none d-md-inline-block">
                     Promise Onuoha &nbsp;
                     <i style="font-size: 11px" class="fas fa-angle-down"></i>
                   </span>

@@ -2,7 +2,7 @@
 <html lang="en" data-topbar-color="dark">
   <head>
     <meta charset="utf-8" />
-    <title>Dashboard - Exquisite Investment Limited</title>
+    <title>Commisions - Exquisite Investment Limited</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta content="Exquisite Investment Limited" name="author" />
@@ -34,6 +34,7 @@
     />
 
     <link rel="stylesheet" href="../css/new-styles.css" />
+
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
       rel="stylesheet"
@@ -65,7 +66,7 @@
           <!-- User box -->
           <!-- <div class="user-box text-center">
             <img
-              src="../dashboard-assets/images/users/user-1.jpg"
+              src="assets/images/users/user-1.jpg"
               alt="user-img"
               title="Mat Helme"
               class="rounded-circle avatar-md"
@@ -171,34 +172,38 @@
               <a href="#menuAuth" data-bs-toggle="collapse" class="menu-link">
                 <span class="menu-icon"
                   ><i
-                    style="font-size: 13px"
+                    style="font-size: 13px; color: #fcb42d"
                     class="fa-solid fa-clock-rotate-left"
                   ></i
                 ></span>
-                <span style="font-size: 14px" class="menu-text"> History </span>
-                <span class="menu-arrow r">
+                <span style="font-size: 14px; color: #fcb42d" class="menu-text">
+                  History
+                </span>
+                <span class="menu-arrow">
                   <i style="font-size: 11px" class="fa-solid fa-angle-right"></i
                 ></span>
               </a>
               <div class="collapse collapse-md" id="menuAuth">
                 <ul class="sub-menu">
                   <li class="menu-item">
-                    <a href="#" class="menu-link">
-                      <span style="font-size: 14px" class="menu-text r"
+                    <a href="/deposit-history/" class="menu-link">
+                      <span style="font-size: 14px" class="menu-text"
                         >Deposit History</span
                       >
                     </a>
                   </li>
                   <li class="menu-item">
-                    <a href="/withdrawal-history" class="menu-link">
+                    <a href="/withdrawal-history/" class="menu-link">
                       <span style="font-size: 14px" class="menu-text"
                         >Withdrawal History</span
                       >
                     </a>
                   </li>
                   <li class="menu-item">
-                    <a href="/commisions" class="menu-link">
-                      <span class="menu-text">Commisions</span>
+                    <a href="#" class="menu-link">
+                      <span class="menu-text" style="color: #fcb42d"
+                        >Commisions</span
+                      >
                     </a>
                   </li>
                 </ul>
@@ -228,16 +233,14 @@
               </a>
             </li>
             <li class="menu-item">
-              <a href="#" class="menu-link">
-                <span class="menu-icon menu-link-color"
+              <a href="/edit-profile" class="menu-link">
+                <span class="menu-icon"
                   ><i
                     style="font-size: 13px"
                     class="fa-solid fa-right-from-bracket"
                   ></i
                 ></span>
-                <span style="font-size: 14px" class="menu-text menu-link-color">
-                  Logout
-                </span>
+                <span style="font-size: 14px" class="menu-text"> Logout </span>
               </a>
             </li>
           </ul>
@@ -260,20 +263,6 @@
               <button class="button-toggle-menu">
                 <i style="font-size: 14px" class="fa-solid fa-bars"></i>
               </button>
-
-              <!-- Dropdown Menu -->
-              <!-- <div class="dropdown d-none d-xl-block">
-                <a
-                  class="nav-link dropdown-toggle waves-effect waves-light"
-                  data-bs-toggle="dropdown"
-                  href="#"
-                  role="button"
-                  aria-haspopup="false"
-                  aria-expanded="false"
-                >
-                  Deposit Funds
-                </a>
-              </div> -->
             </div>
 
             <ul class="topbar-menu d-flex align-items-center">
@@ -286,6 +275,16 @@
                 >
                   <i style="font-size: 20px" class="fas fa-expand"></i>
                 </a>
+              </li> -->
+
+              <!-- Light/Dark Mode Toggle Button -->
+              <!-- <li class="d-none d-sm-inline-block">
+                <div
+                  class="nav-link waves-effect waves-light"
+                  id="light-dark-mode"
+                >
+                  <i style="font-size: 20px" class="fa-regular fa-moon"></i>
+                </div>
               </li> -->
 
               <!-- Light/Dark Mode Toggle Button -->
@@ -344,7 +343,7 @@
                   <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                       <li class="breadcrumb-item">
-                        <a style="color: #fcb42d" href="#">Home </a>
+                        <a style="color: #fcb42d" href="/dashboard/">Home </a>
                       </li>
 
                       <li class="breadcrumb-item active">
@@ -353,160 +352,76 @@
                           class="fas fa-angle-right"
                         ></i>
                       </li>
+                      <li class="breadcrumb-item">
+                        <a style="color: #fcb42d" href="#">History </a>
+                      </li>
+                      <li class="breadcrumb-item active">
+                        <i
+                          style="font-size: 9px"
+                          class="fas fa-angle-right"
+                        ></i>
+                      </li>
 
-                      <li class="breadcrumb-item active">Dashboard</li>
+                      <li class="breadcrumb-item active">Commisions</li>
                     </ol>
                   </div>
-                  <h4 class="page-title">Dashboard</h4>
+                  <h4 class="page-title">Commisions</h4>
                 </div>
               </div>
             </div>
             <!-- end page title -->
+          </div>
+          <!-- container -->
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="header-title">Commisions</h4>
 
-            <div class="row">
-              <div class="col-md-6 col-xl-3">
-                <div class="card" id="tooltip-container">
-                  <div class="card-body">
-                    <i
-                      class="fa fa-info-circle text-muted float-end"
-                      data-bs-container="#tooltip-container"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="bottom"
-                      title="Total amount of active Investment"
-                    ></i>
-                    <h4 class="mt-0 font-16">Active Deposits</h4>
-                    <h2 class="text-primary my-3 text-center">
-                      <span style="color: #fcb42d">$</span>
-                      <span style="color: #fcb42d" data-plugin="counterup"
-                        >31,570</span
-                      >
-                    </h2>
-                    <p class="text-muted mb-0">Total Active Invest</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-6 col-xl-3">
-                <div class="card" id="tooltip-container1">
-                  <div class="card-body">
-                    <i
-                      class="fa fa-info-circle text-muted float-end"
-                      data-bs-container="#tooltip-container1"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="bottom"
-                      title="Total amount of profit made"
-                    ></i>
-                    <h4 class="mt-0 font-16">Profit</h4>
-                    <h2 class="text-primary my-3 text-center">
-                      <span style="color: #fcb42d">$</span
-                      ><span style="color: #fcb42d" data-plugin="counterup"
-                        >683</span
-                      >
-                    </h2>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-6 col-xl-3">
-                <div class="card" id="tooltip-container2">
-                  <div class="card-body">
-                    <i
-                      class="fa fa-info-circle text-muted float-end"
-                      data-bs-container="#tooltip-container2"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="bottom"
-                      title="Number of Referrals"
-                    ></i>
-                    <h4 class="mt-0 font-16">Referrals</h4>
-                    <h2 class="text-primary my-3 text-center">
-                      <span style="color: #fcb42d" data-plugin="counterup"
-                        >3.2</span
-                      ><span style="color: #fcb42d">M</span>
-                    </h2>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-6 col-xl-3">
-                <div class="card" id="tooltip-container3">
-                  <div class="card-body">
-                    <i
-                      class="fa fa-info-circle text-muted float-end"
-                      data-bs-container="#tooltip-container3"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="bottom"
-                      title="Total amount earn on referrals"
-                    ></i>
-                    <h4 class="mt-0 font-16">Referral Commisions</h4>
-                    <h2 class="text-primary my-3 text-center">
-                      <span style="color: #fcb42d">$</span
-                      ><span style="color: #fcb42d" data-plugin="counterup"
-                        >68,541</span
-                      >
-                    </h2>
-                    <p class="text-muted mb-0">
-                      Total amount earn on referrals
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="header-title">Live Crypto Prices</h4>
-
+                  <div
+                    id="basic-datatable_wrapper"
+                    class="dataTables_wrapper dt-bootstrap5 no-footer"
+                  >
                     <div
-                      id="basic-datatable_wrapper"
-                      class="dataTables_wrapper dt-bootstrap5 no-footer"
+                      style="
+                        overflow-x: auto;
+                        max-height: 80vh;
+                        overflow-y: auto;
+                      "
+                      class="row tableScrollbar"
                     >
-                      <div
-                        style="
-                          overflow-x: auto;
-                          max-height: 80vh;
-                          overflow-y: auto;
-                        "
-                        class="row tableScrollbar"
-                      >
-                        <div class="col-sm-12">
-                          <table
-                            id="basic-datatable"
-                            class="table dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
-                            aria-describedby="basic-datatable_info"
-                            style="width: 1010px"
-                          >
-                            <thead>
-                              <tr>
-                                <th tabindex="0" rowspan="1" colspan="1">
-                                  Cryptocurrency
-                                </th>
-                                <th tabindex="0" rowspan="1" colspan="1">
-                                  Price (USD)
-                                </th>
-                                <th tabindex="0" rowspan="1" colspan="1">
-                                  24h Change
-                                </th>
-                                <th tabindex="0" rowspan="1" colspan="1">
-                                  Market Cap
-                                </th>
-                              </tr>
-                            </thead>
+                      <div class="col-sm-12">
+                        <table
+                          id="basic-datatable"
+                          class="table dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
+                          aria-describedby="basic-datatable_info"
+                          style="width: 1010px"
+                        >
+                          <thead>
+                            <tr>
+                              <th tabindex="0" rowspan="1" colspan="1">
+                                Amount
+                              </th>
+                              <th tabindex="0" rowspan="1" colspan="1">Date</th>
 
-                            <tbody></tbody>
-                          </table>
-                        </div>
+                              <th tabindex="0" rowspan="1" colspan="1">
+                                Status
+                              </th>
+                            </tr>
+                          </thead>
+
+                          <tbody></tbody>
+                        </table>
                       </div>
                     </div>
                   </div>
-                  <!-- end card body-->
                 </div>
-                <!-- end card -->
+                <!-- end card body-->
               </div>
-              <!-- end col-->
+              <!-- end card -->
             </div>
+            <!-- end col-->
           </div>
-          <!-- container -->
         </div>
         <!-- content -->
 
@@ -551,76 +466,5 @@
 
     <!-- Dashboard init JS -->
     <script src="../dashboard-assets/js/pages/dashboard-3.init.js"></script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const apiUrl = "https://api.coingecko.com/api/v3/coins/markets";
-        const params = {
-          vs_currency: "usd",
-          order: "market_cap_desc",
-          per_page: 250, // Fetch 250 cryptocurrencies
-          page: 1,
-          sparkline: false,
-        };
-
-        async function fetchCryptoData() {
-          const url = new URL(apiUrl);
-          Object.keys(params).forEach((key) =>
-            url.searchParams.append(key, params[key])
-          );
-          try {
-            const response = await fetch(url);
-            if (response.ok) {
-              const data = await response.json();
-              updateTable(data);
-            } else {
-              console.error("Error fetching data:", response.statusText);
-            }
-          } catch (error) {
-            console.error("Fetch error:", error);
-          }
-        }
-
-        function updateTable(data) {
-          const tbody = document
-            .getElementById("basic-datatable")
-            .getElementsByTagName("tbody")[0];
-          tbody.innerHTML = ""; // Clear previous table rows
-          data.forEach((coin) => {
-            const row = tbody.insertRow();
-
-            // Add crypto image and name
-            const imageCell = row.insertCell(0);
-            const img = document.createElement("img");
-            img.src = coin.image; // Crypto image URL
-            img.alt = coin.name;
-            img.width = 20; // Adjust size as necessary
-            img.height = 20;
-            const name = document.createElement("span");
-            name.textContent = ` ${coin.name}`;
-            imageCell.appendChild(img);
-            imageCell.appendChild(name);
-
-            // Add price
-            row.insertCell(1).textContent = `$${coin.current_price.toFixed(2)}`;
-
-            // Add 24h price change
-            row.insertCell(
-              2
-            ).textContent = `${coin.price_change_percentage_24h.toFixed(2)}%`;
-
-            // Add market cap
-            row.insertCell(
-              3
-            ).textContent = `$${coin.market_cap.toLocaleString()}`;
-          });
-        }
-
-        // Fetch data every 60 seconds
-        setInterval(fetchCryptoData, 60000);
-        // Initial fetch
-        fetchCryptoData();
-      });
-    </script>
   </body>
 </html>

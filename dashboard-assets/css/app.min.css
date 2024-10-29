@@ -47,8 +47,8 @@ html[data-bs-theme="dark"] {
 html[data-menu-color="light"] {
   --ct-menu-bg: #fff;
   --ct-menu-item-color: #6c757d;
-  --ct-menu-item-hover-color: #6658dd;
-  --ct-menu-item-active-color: #6658dd;
+  --ct-menu-item-hover-color: #fcb42d;
+  --ct-menu-item-active-color: #fcb42d;
   --ct-menu-icon-twotone-fill: rgba(102, 88, 221, 0.2);
   --ct-menu-item-active-bg: rgba(102, 88, 221, 0.2);
 }
@@ -58,7 +58,7 @@ html[data-menu-color="dark"] {
   --ct-menu-bg: #37424c;
   --ct-menu-item-color: #9097a7;
   --ct-menu-item-hover-color: #c8cddc;
-  --ct-menu-item-active-color: #6658dd;
+  --ct-menu-item-active-color: #fcb42d;
   --ct-menu-icon-twotone-fill: rgba(102, 88, 221, 0.2);
   --ct-menu-item-active-bg: rgba(102, 88, 221, 0.2);
 }
