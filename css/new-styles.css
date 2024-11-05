@@ -211,3 +211,12 @@ body::-webkit-scrollbar {
     width: 100%;
   }
 }
+/* Hide the Google Translate logo if desired */
+.goog-logo-link {
+  display: none !important;
+}
+/* Adjust the size of the translation dropdown */
+.goog-te-combo {
+  width: 100px;
+  font-size: 14px;
+}
