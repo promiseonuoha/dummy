@@ -39,7 +39,15 @@
       href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
       rel="stylesheet"
     />
-
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/39a80cd06c.js"
@@ -232,7 +240,7 @@
                 <span style="font-size: 14px" class="menu-text"> Profile </span>
               </a>
             </li>
-            <li class="menu-item">
+            <li onclick="handleLogout()" class="menu-item">
               <a href="#" class="menu-link">
                 <span class="menu-icon"
                   ><i
@@ -308,7 +316,7 @@
                   aria-expanded="false"
                 >
                   <span class="ms-1 d-none d-md-inline-block">
-                    Promise Onuoha &nbsp;
+                    <span id="fullName"></span> &nbsp;
                     <i style="font-size: 11px" class="fas fa-angle-down"></i>
                   </span>
                 </a>
@@ -322,7 +330,11 @@
                   <div class="dropdown-divider"></div>
 
                   <!-- item-->
-                  <a href="#" class="dropdown-item notify-item">
+                  <a
+                    onclick="handleLogout()"
+                    href="#"
+                    class="dropdown-item notify-item"
+                  >
                     <i class="fas fa-right-from-bracket"></i> &nbsp;
                     <span>Logout</span>
                   </a>
@@ -457,6 +469,100 @@
         <!-- end Footer -->
       </div>
     </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", async function () {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          window.location.href = "/login";
+        } else {
+          var requestOptions = {
+            method: "GET",
+            redirect: "follow",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          };
+
+          try {
+            let request = await fetch(
+              "https://api-exquisite.up.railway.app/api/v1/user",
+              requestOptions
+            );
+            let depositHistoryRequest = await fetch(
+              "https://api-exquisite.up.railway.app/api/v1/deposit",
+              requestOptions
+            );
+            let response = await request.json();
+            let depositHistoryResponse = await depositHistoryRequest.json();
+
+            if (request.ok) {
+              document.getElementById("fullName").textContent =
+                response?.data?.fullName;
+            } else {
+              Toastify({
+                text: response?.description || "Failed to fetch user details",
+                duration: 3000,
+                gravity: "top",
+                position: "center",
+                backgroundColor: "#dc3545",
+              }).showToast();
+
+              if (response?.description === "Not authenticated") {
+                localStorage.removeItem("token");
+                window.location.href = "/login";
+              }
+            }
+
+            if (depositHistoryRequest.ok) {
+              console.log(depositHistoryResponse);
+              const data = depositHistoryResponse.data;
+              const tbody = document
+                .getElementById("basic-datatable")
+                .getElementsByTagName("tbody")[0];
+              tbody.innerHTML = ""; // Clear previous table rows
+              data.forEach((item) => {
+                const row = tbody.insertRow();
+                row.insertCell(0).textContent = `$${item.amount}`;
+                row.insertCell(1).textContent = `${item.paymentMethod}`;
+                row.insertCell(2).textContent = `${item.reference}`;
+                row.insertCell(3).textContent = `${new Date(
+                  item.date
+                ).toDateString()}`;
+                row.insertCell(4).textContent = `${item.depositStatus}`;
+              });
+            } else {
+              Toastify({
+                text:
+                  depositHistoryResponse?.description ||
+                  "Failed to fetch deposit response",
+                duration: 3000,
+                gravity: "top",
+                position: "center",
+                backgroundColor: "#dc3545",
+              }).showToast();
+
+              if (response?.description === "Not authenticated") {
+                localStorage.removeItem("token");
+                window.location.href = "/login";
+              }
+            }
+          } catch (error) {
+            Toastify({
+              text: error?.message || "Failed to fetch user details",
+              duration: 3000,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "#dc3545",
+            }).showToast();
+          }
+        }
+      });
+      function handleLogout() {
+        localStorage.removeItem("token");
+        window.location.href = "/login";
+      }
+    </script>
 
     <script src="../dashboard-assets/js/vendor.min.js"></script>
 

@@ -29,6 +29,16 @@
 
     <!-- Style -->
     <link rel="stylesheet" href="../login-assets/css/style.css" />
+    <link rel="stylesheet" href="../css/new-styles.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
 
     <title>Sign Up - Exquisite Investment Limited</title>
   </head>
@@ -48,10 +58,11 @@
                   <h3>Create an account Now</h3>
                   <!-- <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p> -->
                 </div>
-                <form action="#" method="post">
+                <form id="form-signup">
                   <div class="form-group first">
                     <label for="fullName">Your Full Name</label>
                     <input
+                      required
                       type="text"
                       class="form-control"
                       placeholder="Your Full Name"
@@ -62,18 +73,20 @@
                     <label for="userName">Your Username</label>
                     <input
                       type="text"
+                      required
                       class="form-control"
                       placeholder="Your Username"
                       id="userName"
                     />
                   </div>
                   <div class="form-group first">
-                    <label for="bitcoin">Your Bitcoin Account</label>
+                    <label for="bitcoinAddress">Your Bitcoin Account</label>
                     <input
                       type="text"
+                      required
                       class="form-control"
                       placeholder="1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa"
-                      id="bitcoin"
+                      id="bitcoinAddress"
                     />
                   </div>
 
@@ -81,6 +94,7 @@
                     <label for="email">Your Email Address</label>
                     <input
                       type="email"
+                      required
                       class="form-control"
                       placeholder="Your Email Address"
                       id="email"
@@ -90,18 +104,22 @@
                     <label for="password">Create Password</label>
                     <input
                       type="password"
+                      required
                       class="form-control"
                       placeholder="Create Password"
+                      minlength="8"
                       id="password"
                     />
                   </div>
                   <div class="form-group last mb-3">
-                    <label for="confirmpassword">Confirm Password</label>
+                    <label for="confirmPassword">Confirm Password</label>
                     <input
+                      required
                       type="password"
                       class="form-control"
+                      minlength="8"
                       placeholder="Confirm Password"
-                      id="confirmpassword"
+                      id="confirmPassword"
                     />
                   </div>
 
@@ -118,11 +136,13 @@
                     >
                   </div>
 
-                  <input
+                  <button
                     type="submit"
-                    value="Register now"
+                    id="submit-btn"
                     class="btn btn-block btn-primary"
-                  />
+                  >
+                    Register now
+                  </button>
                 </form>
               </div>
             </div>
@@ -130,7 +150,7 @@
         </div>
       </div>
     </div>
-
+    <script src="../js/auth.js"></script>
     <script src="../login-assets/js/jquery-3.3.1.min.js"></script>
     <script src="../login-assets/js/popper.min.js"></script>
     <script src="../login-assets/js/bootstrap.min.js"></script>

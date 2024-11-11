@@ -45,6 +45,16 @@
       src="https://kit.fontawesome.com/39a80cd06c.js"
       crossorigin="anonymous"
     ></script>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
   </head>
 
   <body>
@@ -231,8 +241,8 @@
                 <span style="font-size: 14px" class="menu-text"> Profile </span>
               </a>
             </li>
-            <li class="menu-item">
-              <a href="" class="menu-link">
+            <li onclick="handleLogout()" class="menu-item">
+              <a href="#" class="menu-link">
                 <span class="menu-icon"
                   ><i
                     style="font-size: 13px"
@@ -307,7 +317,7 @@
                   aria-expanded="false"
                 >
                   <span class="ms-1 d-none d-md-inline-block">
-                    Promise Onuoha &nbsp;
+                    <span id="fullName"></span> &nbsp;
                     <i style="font-size: 11px" class="fas fa-angle-down"></i>
                   </span>
                 </a>
@@ -321,7 +331,11 @@
                   <div class="dropdown-divider"></div>
 
                   <!-- item-->
-                  <a href="#" class="dropdown-item notify-item">
+                  <a
+                    onclick="handleLogout()"
+                    href="#"
+                    class="dropdown-item notify-item"
+                  >
                     <i class="fas fa-right-from-bracket"></i> &nbsp;
                     <span>Logout</span>
                   </a>
@@ -382,7 +396,13 @@
                         https://exquisiteinvestmentlimited.com/?ref=promisejsx
                       </p>
                     </div>
-                    <button class="copy-link">Copy</button>
+                    <button
+                      type="button"
+                      onclick="copyRefLink()"
+                      class="copy-link"
+                    >
+                      Copy
+                    </button>
                   </div>
                 </div>
                 <!-- end card body-->
@@ -468,7 +488,85 @@
         <!-- end Footer -->
       </div>
     </div>
+    <script>
+      let username = "";
+      document.addEventListener("DOMContentLoaded", async function () {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          window.location.href = "/login";
+        } else {
+          var requestOptions = {
+            method: "GET",
+            redirect: "follow",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          };
 
+          try {
+            let request = await fetch(
+              "https://api-exquisite.up.railway.app/api/v1/user",
+              requestOptions
+            );
+
+            let response = await request.json();
+
+            if (request.ok) {
+              document.getElementById("fullName").textContent =
+                response?.data?.fullName;
+              username = response?.data.userName;
+            } else {
+              Toastify({
+                text: response?.description || "Failed to fetch user details",
+                duration: 3000,
+                gravity: "top",
+                position: "center",
+                backgroundColor: "#dc3545",
+              }).showToast();
+
+              if (response?.description === "Not authenticated") {
+                localStorage.removeItem("token");
+                window.location.href = "/login";
+              }
+            }
+          } catch (error) {
+            Toastify({
+              text: error?.message || "Failed to fetch user details",
+              duration: 3000,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "#dc3545",
+            }).showToast();
+          }
+        }
+      });
+      async function copyRefLink() {
+        try {
+          await navigator.clipboard.writeText(
+            `https://exquisiteinvestmentlimited.com?ref=${username}`
+          );
+          Toastify({
+            text: "Refferal link copied!",
+            duration: 3000,
+            gravity: "top", // Position on top
+            position: "center", // Center alignment
+            backgroundColor: "#28a745",
+          }).showToast();
+        } catch (error) {
+          Toastify({
+            text: error?.message || "Failed to copy link",
+            duration: 3000,
+            gravity: "top",
+            position: "center",
+            backgroundColor: "#dc3545",
+          }).showToast();
+        }
+      }
+      function handleLogout() {
+        localStorage.removeItem("token");
+        window.location.href = "/login";
+      }
+    </script>
     <script src="../dashboard-assets/js/vendor.min.js"></script>
 
     <!-- App js -->

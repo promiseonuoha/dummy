@@ -39,6 +39,15 @@
       href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
 
     <!-- Font Awesome -->
     <script
@@ -230,7 +239,7 @@
                 <span style="font-size: 14px" class="menu-text"> Profile </span>
               </a>
             </li>
-            <li class="menu-item">
+            <li class="menu-item" onclick="handleLogout()">
               <a href="#" class="menu-link">
                 <span class="menu-icon"
                   ><i
@@ -285,7 +294,7 @@
                   aria-expanded="false"
                 >
                   <span class="ms-1 d-none d-md-inline-block">
-                    Promise Onuoha &nbsp;
+                    <span id="fullName"></span> &nbsp;
                     <i style="font-size: 11px" class="fas fa-angle-down"></i>
                   </span>
                 </a>
@@ -299,7 +308,11 @@
                   <div class="dropdown-divider"></div>
 
                   <!-- item-->
-                  <a href="#" class="dropdown-item notify-item">
+                  <a
+                    onclick="handleLogout()"
+                    href="#"
+                    class="dropdown-item notify-item"
+                  >
                     <i class="fas fa-right-from-bracket"></i> &nbsp;
                     <span>Logout</span>
                   </a>
@@ -361,7 +374,7 @@
                               Deposit money to your account to start trading
                               now.
                             </p>
-                            <form>
+                            <form id="form-deposit">
                               <div class="row">
                                 <div class="col-12">
                                   <div class="mb-3">
@@ -372,18 +385,20 @@
                                       title="Select Plan"
                                       class="form-control"
                                       data-width="100%"
+                                      id="plan"
+                                      required
                                     >
                                       <option value="">Select Plan</option>
-                                      <option value="Basic Plan">
+                                      <option value="1">
                                         Basic Plan USD 500 - USD 9999
                                       </option>
-                                      <option value="Standard Plan">
+                                      <option value="2">
                                         Standard Plan USD 10000 - USD 49999
                                       </option>
-                                      <option value="Premium Plan">
+                                      <option value="3">
                                         Premium Plan USD 50000 - USD 99999
                                       </option>
-                                      <option value="VIP Plan">
+                                      <option value="4">
                                         VIP Plan USD 100000 - USD 1000000
                                       </option>
                                     </select>
@@ -400,14 +415,16 @@
                                       title="Select Payment Method"
                                       class="form-control"
                                       data-width="100%"
+                                      id="paymentMethod"
+                                      required
                                     >
                                       <option value="">
                                         Select Payment Method
                                       </option>
-                                      <option value="Basic Plan">
+                                      <option value="Mercent Bitcoin">
                                         Mercent Bitcoin
                                       </option>
-                                      <option value="Basic Plan">
+                                      <option value="Mercent USDT">
                                         Mercent USDT
                                       </option>
                                     </select>
@@ -424,8 +441,8 @@
                                       class="form-control"
                                       type="text"
                                       placeholder="Enter Amount"
-                                      value="500.00"
                                       id="amount"
+                                      required
                                     />
                                   </div>
                                 </div>
@@ -435,13 +452,13 @@
                                 <!-- end col -->
                                 <div class="col-sm-12">
                                   <div class="text-sm-end mt-2 mt-sm-0">
-                                    <a
-                                      href="/deposit/confirmation/"
+                                    <button
+                                      type="submit"
                                       class="btn btn-success"
                                     >
                                       <i class="fas fa-cart-shopping me-1"></i>
-                                      Proceed
-                                    </a>
+                                      Proceed to confirmation
+                                    </button>
                                   </div>
                                 </div>
                                 <!-- end col -->
@@ -489,6 +506,126 @@
         <!-- end Footer -->
       </div>
     </div>
+
+    <script>
+      const token = localStorage.getItem("token");
+      document.addEventListener("DOMContentLoaded", async function () {
+        if (!token) {
+          window.location.href = "/login";
+        } else {
+          var requestOptions = {
+            method: "GET",
+            redirect: "follow",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          };
+
+          try {
+            let request = await fetch(
+              "https://api-exquisite.up.railway.app/api/v1/user",
+              requestOptions
+            );
+            let response = await request.json();
+
+            if (request.ok) {
+              document.getElementById("fullName").textContent =
+                response?.data?.fullName;
+            } else {
+              Toastify({
+                text: response?.description || "Failed to fetch user details",
+                duration: 3000,
+                gravity: "top",
+                position: "center",
+                backgroundColor: "#dc3545",
+              }).showToast();
+
+              if (response?.description === "Not authenticated") {
+                localStorage.removeItem("token");
+                window.location.href = "/login";
+              }
+            }
+          } catch (error) {
+            Toastify({
+              text: error?.message || "Failed to fetch user details",
+              duration: 3000,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "#dc3545",
+            }).showToast();
+          }
+        }
+      });
+      function handleLogout() {
+        localStorage.removeItem("token");
+        window.location.href = "/login";
+      }
+      document
+        .getElementById("form-deposit")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const amount = document.getElementById("amount").value;
+          const paymentMethod = document.getElementById("paymentMethod").value;
+          const planId = document.getElementById("plan").value;
+
+          if (isNaN(amount)) {
+            Toastify({
+              text: "Amount must be a number",
+              duration: 3000,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "#dc3545",
+            }).showToast();
+            return;
+          }
+
+          if (planId === "1" && Number(amount) < 500) {
+            Toastify({
+              text: "Amount must be up to $500 for this plan.",
+              duration: 3000,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "#dc3545",
+            }).showToast();
+            return;
+          }
+
+          if (planId === "2" && Number(amount) < 10000) {
+            Toastify({
+              text: "Amount must be up to $10000 for this plan.",
+              duration: 3000,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "#dc3545",
+            }).showToast();
+            return;
+          }
+
+          if (planId === "3" && Number(amount) < 50000) {
+            Toastify({
+              text: "Amount must be up to $50000 for this plan.",
+              duration: 3000,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "#dc3545",
+            }).showToast();
+            return;
+          }
+          if (planId === "4" && Number(amount) < 100000) {
+            Toastify({
+              text: "Amount must be up to $100000 for this plan.",
+              duration: 3000,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "#dc3545",
+            }).showToast();
+            return;
+          }
+
+          window.location.href = `/deposit/confirmation/?amount=${amount}&method=${paymentMethod}&plan=${planId}`;
+        });
+    </script>
 
     <script src="../dashboard-assets/js/vendor.min.js"></script>
 
