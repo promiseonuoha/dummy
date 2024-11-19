@@ -393,7 +393,9 @@
                   >
                     <div class="refferal-link">
                       <p>
-                        https://exquisiteinvestmentlimited.com/?ref=promisejsx
+                        https://exquisiteinvestmentlimited.com/sign-up/?ref=<span
+                          id="refId"
+                        ></span>
                       </p>
                     </div>
                     <button
@@ -514,6 +516,8 @@
             if (request.ok) {
               document.getElementById("fullName").textContent =
                 response?.data?.fullName;
+              document.getElementById("refId").textContent =
+                response?.data.userName;
               username = response?.data.userName;
             } else {
               Toastify({
@@ -543,7 +547,7 @@
       async function copyRefLink() {
         try {
           await navigator.clipboard.writeText(
-            `https://exquisiteinvestmentlimited.com?ref=${username}`
+            `https://exquisiteinvestmentlimited.com/sign-up/?ref=${username}`
           );
           Toastify({
             text: "Refferal link copied!",

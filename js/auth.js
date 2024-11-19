@@ -6,6 +6,8 @@ document
     const submitBtn = document.getElementById("submit-btn");
     submitBtn.textContent = "Please wait..."; // Change button text
 
+    const referralIdInputValue = document.getElementById("referralId").value;
+
     const formData = {
       fullName: document.getElementById("fullName").value,
       userName: document.getElementById("userName").value,
@@ -14,6 +16,10 @@ document
       confirmPassword: document.getElementById("confirmPassword").value,
       bitcoinAddress: document.getElementById("bitcoinAddress").value,
     };
+
+    if (referralIdInputValue?.length > 0) {
+      formData.referralId = referralIdInputValue;
+    }
 
     try {
       const response = await fetch(
@@ -62,3 +68,10 @@ document
       submitBtn.textContent = "Sign Up"; // Reset button text
     }
   });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const refId = urlParams.get("ref") || "";
+  document.getElementById("referralId").value = refId;
+});

@@ -276,25 +276,6 @@
 
             <ul class="topbar-menu d-flex align-items-center">
               <!-- Fullscreen Button -->
-              <!-- <li class="d-none d-md-inline-block">
-                <a
-                  class="nav-link waves-effect waves-light"
-                  href=""
-                  data-toggle="fullscreen"
-                >
-                  <i style="font-size: 20px" class="fas fa-expand"></i>
-                </a>
-              </li> -->
-
-              <!-- Light/Dark Mode Toggle Button -->
-              <!-- <li class="d-none d-sm-inline-block">
-                <div
-                  class="nav-link waves-effect waves-light"
-                  id="light-dark-mode"
-                >
-                  <i style="font-size: 20px" class="fa-regular fa-moon"></i>
-                </div>
-              </li> -->
 
               <!-- Light/Dark Mode Toggle Button -->
               <li class="d-inline-block d-sm-inline-block">
@@ -421,7 +402,9 @@
                             <p>
                               <b>Profit:</b>
                             </p>
-                            <p><span id="profit"></span>% Daily for lifelong</p>
+                            <p>
+                              <span id="profit"></span>% Weekly for lifelong
+                            </p>
                           </div>
 
                           <div>
@@ -434,7 +417,7 @@
                             <p>
                               <b>Deposit Fee:</b>
                             </p>
-                            <p>0.00% + $0.00 (min. $0.00 max. $0.00)</p>
+                            <p>0.00%</p>
                           </div>
                           <div>
                             <p>
@@ -537,27 +520,27 @@
       switch (planId) {
         case "1":
           planData.plan = "Basic Plan";
-          planData.profit = "7";
+          planData.profit = "10";
           break;
 
         case "2":
           planData.plan = "Standard Plan";
-          planData.profit = "10";
+          planData.profit = "20";
           break;
 
         case "3":
           planData.plan = "Premium Plan";
-          planData.profit = "15";
+          planData.profit = "30";
           break;
 
         case "4":
           planData.plan = "Vip Plan";
-          planData.profit = "20";
+          planData.profit = "40";
           break;
 
         default:
           planData.plan = "Basic Plan";
-          planData.profit = "7";
+          planData.profit = "10";
           break;
       }
 
