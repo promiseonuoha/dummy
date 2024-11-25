@@ -393,7 +393,7 @@
                   >
                     <div class="refferal-link">
                       <p>
-                        https://exquisiteinvestmentlimited.com/sign-up/?ref=<span
+                        <span id="baseOrigin"></span>/sign-up/?ref=<span
                           id="refId"
                         ></span>
                       </p>
@@ -507,7 +507,7 @@
 
           try {
             let request = await fetch(
-              "https://api-exquisite.up.railway.app/api/v1/user",
+              "https://exquisite-backend.onrender.com/api/v1/user",
               requestOptions
             );
 
@@ -518,6 +518,8 @@
                 response?.data?.fullName;
               document.getElementById("refId").textContent =
                 response?.data.userName;
+              document.getElementById("baseOrigin").textContent =
+                window.location.origin;
               username = response?.data.userName;
             } else {
               Toastify({
@@ -547,7 +549,7 @@
       async function copyRefLink() {
         try {
           await navigator.clipboard.writeText(
-            `https://exquisiteinvestmentlimited.com/sign-up/?ref=${username}`
+            `${window.location.origin}/sign-up/?ref=${username}`
           );
           Toastify({
             text: "Refferal link copied!",

@@ -23,7 +23,7 @@ document
 
     try {
       const response = await fetch(
-        "https://api-exquisite.up.railway.app/api/v1/signup",
+        "https://exquisite-backend.onrender.com/api/v1/signup",
         {
           method: "POST",
           headers: {

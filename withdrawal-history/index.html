@@ -487,11 +487,11 @@
 
           try {
             let request = await fetch(
-              "https://api-exquisite.up.railway.app/api/v1/user",
+              "https://exquisite-backend.onrender.com/api/v1/user",
               requestOptions
             );
             let witdrawalHistoryRequest = await fetch(
-              "https://api-exquisite.up.railway.app/api/v1/withdrawal",
+              "https://exquisite-backend.onrender.com/api/v1/withdrawal",
               requestOptions
             );
             let response = await request.json();

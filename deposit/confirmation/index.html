@@ -558,11 +558,11 @@
 
           try {
             let request = await fetch(
-              "https://api-exquisite.up.railway.app/api/v1/user",
+              "https://exquisite-backend.onrender.com/api/v1/user",
               requestOptions
             );
             let getWalletRequest = await fetch(
-              "https://api-exquisite.up.railway.app/api/v1/admin/address"
+              "https://exquisite-backend.onrender.com/api/v1/admin/address"
             );
 
             let response = await request.json();
@@ -654,7 +654,7 @@
         };
         try {
           const response = await fetch(
-            "https://api-exquisite.up.railway.app/api/v1/deposit",
+            "https://exquisite-backend.onrender.com/api/v1/deposit",
             {
               method: "POST",
               headers: {

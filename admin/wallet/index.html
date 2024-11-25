@@ -350,11 +350,11 @@
 
           try {
             let request = await fetch(
-              "https://api-exquisite.up.railway.app/api/v1/admin/details",
+              "https://exquisite-backend.onrender.com/api/v1/admin/details",
               requestOptions
             );
             let walletRequest = await fetch(
-              "https://api-exquisite.up.railway.app/api/v1/admin/address",
+              "https://exquisite-backend.onrender.com/api/v1/admin/address",
               requestOptions
             );
             let response = await request.json();
@@ -415,7 +415,7 @@
 
           try {
             const response = await fetch(
-              "https://api-exquisite.up.railway.app/api/v1/admin/address",
+              "https://exquisite-backend.onrender.com/api/v1/admin/address",
               {
                 method: "PATCH",
                 headers: {
