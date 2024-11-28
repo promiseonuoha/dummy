@@ -187,7 +187,7 @@
               </li>
 
               <!-- User Dropdown -->
-              <li class="dropdown d-none d-sm-inline-block">
+              <li class="dropdown inline-block">
                 <a
                   class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light"
                   data-bs-toggle="dropdown"
@@ -196,7 +196,7 @@
                   aria-haspopup="false"
                   aria-expanded="false"
                 >
-                  <span class="ms-1 d-none d-md-inline-block">
+                  <span class="ms-1 inline-block">
                     <span id="fullName"></span> &nbsp;
                   </span>
                 </a>
@@ -300,6 +300,10 @@
         </div>
         <!-- content -->
       </div>
+      <div
+        id="google_translate_element"
+        style="position: fixed; bottom: 20px; left: 20px; z-index: 400"
+      ></div>
     </div>
 
     <script>
@@ -465,5 +469,17 @@
 
     <!-- Dashboard init JS -->
     <script src="../../dashboard-assets/js/pages/dashboard-3.init.js"></script>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          { pageLanguage: "en" },
+          "google_translate_element"
+        );
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
   </body>
 </html>

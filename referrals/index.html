@@ -56,21 +56,11 @@
       src="https://cdn.jsdelivr.net/npm/toastify-js"
     ></script>
   </head>
-  <!--Start of Tawk.to Script-->
-  <script type="text/javascript">
-    var Tawk_API = Tawk_API || {},
-      Tawk_LoadStart = new Date();
-    (function () {
-      var s1 = document.createElement("script"),
-        s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = "https://embed.tawk.to/67459d992480f5b4f5a43bb7/1idjuva2a";
-      s1.charset = "UTF-8";
-      s1.setAttribute("crossorigin", "*");
-      s0.parentNode.insertBefore(s1, s0);
-    })();
-  </script>
-  <!--End of Tawk.to Script-->
+  <script
+    src="//code.tidio.co/sfxhzkzkxmnwwed1jgstaplxlalzsrud.js"
+    async
+  ></script>
+
   <body>
     <!-- Begin page -->
     <div id="wrapper">
@@ -321,7 +311,7 @@
               </li>
 
               <!-- User Dropdown -->
-              <li class="dropdown d-none d-sm-inline-block">
+              <li class="dropdown inline-block">
                 <a
                   class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light"
                   data-bs-toggle="dropdown"
@@ -330,7 +320,7 @@
                   aria-haspopup="false"
                   aria-expanded="false"
                 >
-                  <span class="ms-1 d-none d-md-inline-block">
+                  <span class="ms-1 inline-block">
                     <span id="fullName"></span> &nbsp;
                     <i style="font-size: 11px" class="fas fa-angle-down"></i>
                   </span>
@@ -346,8 +336,8 @@
 
                   <!-- item-->
                   <a
-                    onclick="handleLogout()"
                     href="#"
+                    onclick="handleLogout()"
                     class="dropdown-item notify-item"
                   >
                     <i class="fas fa-right-from-bracket"></i> &nbsp;
@@ -500,6 +490,10 @@
               </div>
             </div>
           </div>
+          <div
+            id="google_translate_element"
+            style="position: fixed; bottom: 20px; left: 20px; z-index: 400"
+          ></div>
         </footer>
         <!-- end Footer -->
       </div>
@@ -600,5 +594,17 @@
 
     <!-- Dashboard init JS -->
     <script src="../dashboard-assets/js/pages/dashboard-3.init.js"></script>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          { pageLanguage: "en" },
+          "google_translate_element"
+        );
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
   </body>
 </html>
