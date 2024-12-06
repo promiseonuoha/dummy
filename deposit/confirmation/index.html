@@ -577,7 +577,7 @@
             let getWalletResponse = await getWalletRequest.json();
 
             if (getWalletRequest.ok) {
-              let adminAddress = paymentMethod.endsWith("Bitcoin")
+              let adminAddress = paymentMethod.startsWith("Bitcoin")
                 ? getWalletResponse.data?.bitcoinAddress
                 : getWalletResponse.data?.usdtAddress;
               address = adminAddress;
@@ -644,11 +644,8 @@
       document.getElementById("coinPrice").textContent = amount;
       document.getElementById("profit").textContent = planData.profit;
       document.getElementById("plan").textContent = planData.plan;
-      document.getElementById("coinType").textContent = paymentMethod.endsWith(
-        "Bitcoin"
-      )
-        ? "Bitcoin"
-        : "USDT";
+      document.getElementById("coinType").textContent =
+        paymentMethod.startsWith("Bitcoin") ? "Bitcoin" : "USDT";
       document.getElementById("method").textContent = paymentMethod;
 
       async function submitRequest() {
